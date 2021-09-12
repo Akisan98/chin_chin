@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 /// Displayes Modal Sheet With Information About The Current Game,
 /// Triggered By Pressing the Action Chip In AppBar.
 class InfoSheet extends StatelessWidget {
-  const InfoSheet({Key? key}) : super(key: key);
+  const InfoSheet({required this.game, required this.explaination, Key? key}) : super(key: key);
+
+  final String game;
+  final String explaination;
 
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       builder: (context, scrollController) {
-        return Expanded(
-          child: SingleChildScrollView(
+        return SingleChildScrollView(
             controller: scrollController,
             child: Column(
               children: [
@@ -26,28 +28,27 @@ class InfoSheet extends StatelessWidget {
                 ),
 
                 // Header
-                const Padding(
-                  padding: EdgeInsets.only(top: 32, left: 16, right: 16),
+                Padding(
+                  padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
                   child: Text(
-                    "Jeg har Aldri...", 
+                    game, 
                     textScaleFactor: 6,
-                    style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                    style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
                   ),
                 ),
 
                 // Text
-                const Padding(
-                  padding: EdgeInsets.only(top: 32, left: 32, right: 32),
+                Padding(
+                  padding: const EdgeInsets.only(top: 32, left: 32, right: 32),
                   child: Text(
-                    "Den eldste spilleren starter med et utsagn, hvis folk har gjort det drikker dem, om ingen har drikker personen som leste.", 
+                    explaination, 
                     textScaleFactor: 3.5,
-                    style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                    style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
                   ),
                 ),
               ],
             ),
-          )
-        );
+          );
       },
       initialChildSize: 0.7,
       maxChildSize: 0.9,

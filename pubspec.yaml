@@ -29,7 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
+  auto_size_text: ^3.0.0-nullsafety.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -57,6 +58,11 @@ flutter:
       - family: MouseMemoirs
         fonts:
           - asset: fonts/MouseMemoirs-Regular.ttf
+  assets:
+    - assets/card11.png
+    - assets/card22.png
+    - assets/card33.png
+    - assets/card44.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 /// Custom and Stylish Appbar to Replace The Standard One. 
 class SimpleAppBar extends StatelessWidget {
-  const SimpleAppBar({Key? key}) : super(key: key);
+  const SimpleAppBar({required this.game, required this.explaination, Key? key}) : super(key: key);
+
+  final String game;
+  final String explaination;
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +15,10 @@ class SimpleAppBar extends StatelessWidget {
       height: MediaQuery.of(context).devicePixelRatio == 3 ? 55 : 60,
       width: double.infinity,
       child: Row(
-        children: const [
-          BackButton(),
-          BarTitle(),
-          HelpButton(),
+        children: [
+          const BackButton(),
+          const BarTitle(),
+          HelpButton(game: game, explaination: explaination),
         ],
       ),
     );
@@ -72,7 +75,10 @@ class BarTitle extends StatelessWidget {
 
 /// For Displaying The Help Chip That Open The Info Sheet
 class HelpButton extends StatelessWidget {
-  const HelpButton({Key? key}) : super(key: key);
+  const HelpButton({required this.game, required this.explaination, Key? key}) : super(key: key);
+
+  final String game;
+  final String explaination;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +91,7 @@ class HelpButton extends StatelessWidget {
           avatar: const Icon(Icons.help_outline),
           onPressed: (){
             showModalBottomSheet(
-              builder: (context) => const InfoSheet(), 
+              builder: (context) => InfoSheet(game: game, explaination: explaination), 
               context: context,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))
