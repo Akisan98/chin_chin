@@ -12,7 +12,6 @@ class MenuScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: const [
-            SimpleAppBar(),
           ],
         ),
       ),

@@ -1,6 +1,8 @@
+import 'package:chin_chin/widgets/info_modal_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Custom and Stylish Appbar to Replace The Standard One. 
 class SimpleAppBar extends StatelessWidget {
   const SimpleAppBar({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class SimpleAppBar extends StatelessWidget {
   }
 }
 
+/// Displayes Back Arrow For Exiting Page
 class BackButton extends StatelessWidget {
   const BackButton({Key? key}) : super(key: key);
 
@@ -40,6 +43,7 @@ class BackButton extends StatelessWidget {
   }
 }
 
+/// Displayes The Title of Page
 class BarTitle extends StatelessWidget {
   const BarTitle({Key? key}) : super(key: key);
 
@@ -66,6 +70,7 @@ class BarTitle extends StatelessWidget {
   }
 }
 
+/// For Displaying The Help Chip That Open The Info Sheet
 class HelpButton extends StatelessWidget {
   const HelpButton({Key? key}) : super(key: key);
 
@@ -74,12 +79,21 @@ class HelpButton extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(16, 0, 8, 0),
+        padding: const EdgeInsets.fromLTRB(16, 0, 8, 0),
         child: ActionChip(
-          label: Text("Help"),
-          avatar: Icon(Icons.help_outline),
-          onPressed: (){}, 
-
+          label: const Text("Help"),
+          avatar: const Icon(Icons.help_outline),
+          onPressed: (){
+            showModalBottomSheet(
+              builder: (context) => const InfoSheet(), 
+              context: context,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))
+              ),
+              isScrollControlled: true,
+              backgroundColor: Colors.green,
+            );
+          }, 
         )
       )
     );

@@ -1,10 +1,11 @@
+import 'package:chin_chin/pages/game_screen.dart';
 import 'package:chin_chin/pages/menu_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     const MaterialApp(
-      home: MenuScreen(),
+      home: GameScreen(),
       debugShowCheckedModeBanner: false,
     )
   );
