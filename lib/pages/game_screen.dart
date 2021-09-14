@@ -9,6 +9,18 @@ class GameScreen extends StatelessWidget {
 
   final int gameNumber;
 
+  @override
+  Widget build(BuildContext context) {
+    // Wrap With Future
+    return GameScreenBody(gameNumber: gameNumber);
+  }
+}
+
+class GameScreenBody extends StatelessWidget {
+  const GameScreenBody({required this.gameNumber, Key? key}) : super(key: key);
+
+  final int gameNumber;
+
   static const images =  ["card44.png", "card11.png", "card33.png", "card22.png"];
   static const gameNames =  ["Jeg har aldri...", "Hvem i rommet", "Vil du heller", "Nødt eller Sannhet"];
   static const descriptions =  [
@@ -20,7 +32,7 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    
     final PageController _controller = PageController();
 
     return Scaffold(
@@ -54,7 +66,10 @@ class GameScreen extends StatelessWidget {
                     controller: _controller,
                     itemCount: 1000,
                     itemBuilder: (context, index) {
-                      return QuestionCard(image: images[gameNumber]);
+                      return QuestionCard(
+                        image: images[gameNumber], 
+                        question: "$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work",
+                      );
                     } 
                   ),
                 ),
@@ -89,12 +104,14 @@ class GameScreen extends StatelessWidget {
       ),
     );
   }
+  
 }
 
 class QuestionCard extends StatelessWidget {
-  const QuestionCard({required this.image, Key? key}) : super(key: key);
+  const QuestionCard({required this.image, required this.question, Key? key}) : super(key: key);
 
   final String image;
+  final String question;
 
   @override
   Widget build(BuildContext context) {
@@ -103,12 +120,13 @@ class QuestionCard extends StatelessWidget {
       child: Container(
         height: 300,
         width: double.infinity,
-        child: const Padding(
-          padding: EdgeInsets.all(16), 
+        child: Padding(
+          padding: const EdgeInsets.all(24), 
           child: AutoSizeText(
-            'Hei jeg er akisan o tekst',
-            style: TextStyle(fontSize: 60, fontFamily: 'MouseMemoirs', color: Colors.white),
-            maxLines: 5,
+            question,
+            style: const TextStyle(fontSize: 60, fontFamily: 'MouseMemoirs', color: Colors.white),
+            maxLines: 10,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         
