@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
 
-  static const images =  ["card44.png", "card11.png", "card33.png", "card22.png"];
-  static const gameNames =  ["Jeg har aldri...", "Hvem i rommet", "Vil du heller", "Nødt eller Sannhet"];
+  static const images =  ['card44.png', 'card11.png', 'card33.png', 'card22.png'];
+  static const gameNames =  ['Jeg har aldri...', 'Hvem i rommet', 'Vil du heller', 'Nødt eller Sannhet'];
 
 
   @override
@@ -22,7 +22,7 @@ class MenuScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 48, left: 16, right: 16),
               child: Text(
-                "Chin Chin", 
+                'Chin Chin', 
                 textScaleFactor: 6.5,
                 style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
               ),
@@ -74,7 +74,7 @@ class GameCard extends StatelessWidget {
           height: 175,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/$image"),
+              image: AssetImage('assets/$image'),
               fit: BoxFit.fill
             ),
             borderRadius: const BorderRadius.all(Radius.circular(20))

@@ -21,13 +21,13 @@ class GameScreenBody extends StatelessWidget {
 
   final int gameNumber;
 
-  static const images =  ["card44.png", "card11.png", "card33.png", "card22.png"];
-  static const gameNames =  ["Jeg har aldri...", "Hvem i rommet", "Vil du heller", "Nødt eller Sannhet"];
+  static const images =  ['card44.png', 'card11.png', 'card33.png', 'card22.png'];
+  static const gameNames =  ['Jeg har aldri...', 'Hvem i rommet', 'Vil du heller', 'Nødt eller Sannhet'];
   static const descriptions =  [
-    "Den eldste spilleren starter med et utsagn, hvis folk har gjort det drikker dem, om ingen har drikker personen som leste.",
-    "Spill ved å sende rundt en objekt eller peke på personen du tror det er.",
-    "Den yngste spilleren starter spillet og stiller spørsmålet til spilleren som står ved siden av ham og så videre...",
-    ""
+    'Den eldste spilleren starter med et utsagn, hvis folk har gjort det drikker dem, om ingen har drikker personen som leste.',
+    'Spill ved å sende rundt en objekt eller peke på personen du tror det er.',
+    'Den yngste spilleren starter spillet og stiller spørsmålet til spilleren som står ved siden av ham og så videre...',
+    ''
   ];
 
   @override
@@ -68,7 +68,7 @@ class GameScreenBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return QuestionCard(
                         image: images[gameNumber], 
-                        question: "$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work",
+                        question: '$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work',
                       );
                     } 
                   ),
@@ -85,7 +85,7 @@ class GameScreenBody extends StatelessWidget {
                     onPressed: () {
                       _controller.nextPage(duration: const Duration(seconds: 1), curve: Curves.ease);
                     }, 
-                    child: const Text("Neste"), 
+                    child: const Text('Neste'), 
                     style: ButtonStyle(
                       backgroundColor:  MaterialStateProperty.all(Colors.white),
                       textStyle: MaterialStateProperty.all(
@@ -133,7 +133,7 @@ class QuestionCard extends StatelessWidget {
 
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/$image"),
+            image: AssetImage('assets/$image'),
             fit: BoxFit.fill
           ),
           borderRadius: const BorderRadius.all(Radius.circular(20))

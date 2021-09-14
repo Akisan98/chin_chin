@@ -58,7 +58,7 @@ class BarTitle extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Text(
-            " ", 
+            ' ', 
             style: TextStyle(
               fontWeight: FontWeight.w900,
               color: Colors.white
@@ -87,7 +87,7 @@ class HelpButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 8, 0),
         child: ActionChip(
-          label: const Text("Help"),
+          label: const Text('Help'),
           avatar: const Icon(Icons.help_outline),
           onPressed: (){
             showModalBottomSheet(
