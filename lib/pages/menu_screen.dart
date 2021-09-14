@@ -32,6 +32,7 @@ class MenuScreen extends StatelessWidget {
            for (int i = 0; i < 4; i++)
               GameCard(image:images[i], gameName: gameNames[i], cardIndex: i,),
 
+            //TODO: Add Trivia Game Mode
           ],
         ),
         )
