@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:chin_chin/data/api/questions_api.dart';
 import 'package:chin_chin/widgets/simple_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -12,14 +13,23 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Wrap With Future
-    return GameScreenBody(gameNumber: gameNumber);
+    return FutureBuilder(
+      future: Questions.getQuestions(gameNumber),
+      builder: (context, AsyncSnapshot<List<String>> snapshot) {
+        if (snapshot.hasData) {
+          return GameScreenBody(gameNumber: gameNumber, questions: snapshot.data!);
+        }
+        return const Text('Fetching Data!');
+      }
+    );
   }
 }
 
 class GameScreenBody extends StatelessWidget {
-  const GameScreenBody({required this.gameNumber, Key? key}) : super(key: key);
+  const GameScreenBody({required this.gameNumber, required this.questions, Key? key}) : super(key: key);
 
   final int gameNumber;
+  final List<String> questions;
 
   static const images =  ['card44.png', 'card11.png', 'card33.png', 'card22.png'];
   static const gameNames =  ['Jeg har aldri...', 'Hvem i rommet', 'Vil du heller', 'Nødt eller Sannhet'];
@@ -30,8 +40,10 @@ class GameScreenBody extends StatelessWidget {
     ''
   ];
 
+
   @override
   Widget build(BuildContext context) {
+    questions.add('NO MORE QUESTIONS!');
     
     final PageController _controller = PageController();
 
@@ -64,11 +76,11 @@ class GameScreenBody extends StatelessWidget {
                   height: 300,
                   child: PageView.builder(
                     controller: _controller,
-                    itemCount: 1000,
+                    itemCount: questions.length,
                     itemBuilder: (context, index) {
                       return QuestionCard(
                         image: images[gameNumber], 
-                        question: '$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work$index, some long text to see if everthing works as intended or does it not, i want it to work',
+                        question: questions[index]//'$index TEXT',
                       );
                     } 
                   ),
@@ -97,7 +109,7 @@ class GameScreenBody extends StatelessWidget {
                     )
                   ),
                 )
-              )
+              ),
             ],
           ),
         )

@@ -1,10 +1,10 @@
-import 'package:chin_chin/pages/test.dart';
+import 'package:chin_chin/pages/menu_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     const MaterialApp(
-      home: TestPage(),
+      home: MenuScreen(),
       debugShowCheckedModeBanner: false,
     )
   );
