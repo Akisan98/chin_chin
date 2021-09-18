@@ -54,12 +54,13 @@ class GameScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    questions.shuffle();
     questions.add('INGEN FLERE SPØRSMÅL! -  Prøve gjerne en annen lek');
     
     final PageController _controller = PageController();
 
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.grey[850],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -137,6 +138,11 @@ class _TruthAndDareState extends State<TruthAndDare> {
     truths = widget.truths;
     dares = widget.dares;
 
+    truths.shuffle();
+    dares.shuffle();
+    truths.add('INGEN FLERE SPØRSMÅL! -  Prøve gjerne en annen lek');
+    dares.add('INGEN FLERE SPØRSMÅL! -  Prøve gjerne en annen lek');
+
     _controllerTruth = PageController();
     _controllerDare = PageController();
   }
@@ -155,7 +161,7 @@ class _TruthAndDareState extends State<TruthAndDare> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.grey[850],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -236,15 +242,14 @@ class _TruthAndDareState extends State<TruthAndDare> {
                             }
                           }, 
                           child: const Text('Nødt'), 
-                          style: ButtonStyle(
-                            backgroundColor:  MaterialStateProperty.all(Colors.white),
-                            textStyle: MaterialStateProperty.all(
-                              const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800
-                              )
-                            ),
-                          )
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.cyan[700],
+                            textStyle: const TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w800,
+                            )
+                          ),
                         ),
                       ),
 
@@ -274,15 +279,14 @@ class _TruthAndDareState extends State<TruthAndDare> {
                             }
                           }, 
                           child: const Text('Sannhet'), 
-                          style: ButtonStyle(
-                            backgroundColor:  MaterialStateProperty.all(Colors.white),
-                            textStyle: MaterialStateProperty.all(
-                              const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800
-                              )
-                            ),
-                          )
+                          style: TextButton.styleFrom(
+                            primary: Colors.cyan[700],
+                            backgroundColor: Colors.white,
+                            textStyle: const TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w800,
+                            )
+                          ),
                         ),
                       )
                     ],
@@ -308,7 +312,7 @@ class GameTitle extends StatelessWidget {
       padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 16 : 32, left: 16, right: 16),
       child: AutoSizeText(
         gameName,
-        style: const TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.white),
+        style: TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
         maxLines: 1,
         textAlign: TextAlign.left,
         //overflow: TextOverflow.ellipsis,
@@ -412,15 +416,14 @@ class NextButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed, 
           child: Text(lable), 
-          style: ButtonStyle(
-            backgroundColor:  MaterialStateProperty.all(Colors.white),
-            textStyle: MaterialStateProperty.all(
-              const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w800
-              )
-            ),
-          )
+          style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.cyan[700],
+            textStyle: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w800,
+            )
+          ),
         ),
       )
     );

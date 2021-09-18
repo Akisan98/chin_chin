@@ -21,7 +21,7 @@ class InfoSheet extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: IconButton(
                 onPressed: () => Navigator.pop(context), 
-                icon: const Icon(Icons.close)
+                icon: const Icon(Icons.close, color: Colors.white,)
               ),
             ),
 
@@ -37,7 +37,7 @@ class InfoSheet extends StatelessWidget {
                       child: Text(
                         game, 
                         textScaleFactor: 6,
-                        style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                        style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
                       ),
                     ),
 

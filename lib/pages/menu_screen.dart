@@ -12,19 +12,19 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.grey[850],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
           children: [
             
             // Header
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(top: 48, left: 16, right: 16),
               child: Text(
                 'Chin Chin', 
                 textScaleFactor: 6.5,
-                style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
               ),
             ),
 

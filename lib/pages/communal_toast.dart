@@ -17,7 +17,7 @@ class CommunalToast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.grey[850],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -29,7 +29,7 @@ class CommunalToast extends StatelessWidget {
               // Header
               const GameTitle(gameName: 'Chin Chin - Skål'),
 
-              RuleCard(emoji: emojis[rng.nextInt(emojis.length - 1)], rule: rules[rng.nextInt(rules.length - 1)]),
+              RuleCard(emoji: emojis[rng.nextInt(emojis.length)], rule: rules[rng.nextInt(rules.length)]),
 
 
               NextButton(

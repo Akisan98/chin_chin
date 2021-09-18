@@ -87,8 +87,9 @@ class HelpButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 8, 0),
         child: ActionChip(
-          label: const Text('Help'),
-          avatar: const Icon(Icons.help_outline),
+          backgroundColor: Colors.grey[600],
+          label:  Text('Help', style: TextStyle(color: Colors.white)),
+          avatar: Icon(Icons.help_outline, color: Colors.white),
           onPressed: (){
             showModalBottomSheet(
               builder: (context) => InfoSheet(game: game, explaination: explaination), 
@@ -97,7 +98,7 @@ class HelpButton extends StatelessWidget {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))
               ),
               isScrollControlled: true,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.grey[800],
             );
           }, 
         )
