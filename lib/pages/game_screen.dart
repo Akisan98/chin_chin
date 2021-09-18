@@ -305,7 +305,7 @@ class GameTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 16 : 32, left: 16, right: 16),
       child: AutoSizeText(
         gameName,
         style: const TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.white),
@@ -325,7 +325,7 @@ class PaddedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 48),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 24.0 : 48.0),
       child: FixedCardSize(
         child: child
       ),
@@ -342,7 +342,7 @@ class FixedCardSize extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).devicePixelRatio == 3.0 ? MediaQuery.of(context).size.height * 0.38 : MediaQuery.of(context).size.height * 0.4,
       child: child
     );
   }

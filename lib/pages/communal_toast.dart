@@ -60,7 +60,7 @@ class RuleCard extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 200,
+              height: MediaQuery.of(context).devicePixelRatio == 3.0 ? 160 : 200,
               child: AutoSizeText(
                 emoji,
                 style: const TextStyle(fontSize: 200),
@@ -69,7 +69,7 @@ class RuleCard extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: MediaQuery.of(context).devicePixelRatio == 3.0 ? 80 : 100,
               child: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: AutoSizeText(

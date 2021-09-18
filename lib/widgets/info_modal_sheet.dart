@@ -13,42 +13,49 @@ class InfoSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       builder: (context, scrollController) {
-        return SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              children: [
-
-                // Close Button
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context), 
-                    icon: const Icon(Icons.close)
-                  ),
-                ),
-
-                // Header
-                Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
-                  child: Text(
-                    game, 
-                    textScaleFactor: 6,
-                    style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
-                  ),
-                ),
-
-                // Text
-                Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 32),
-                  child: Text(
-                    explaination, 
-                    textScaleFactor: 3.5,
-                    style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
-                  ),
-                ),
-              ],
+        return Column(
+          children: [
+            
+            // Close Button
+            Align(
+              alignment: Alignment.centerLeft,
+              child: IconButton(
+                onPressed: () => Navigator.pop(context), 
+                icon: const Icon(Icons.close)
+              ),
             ),
-          );
+
+            Expanded(
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  children: [
+
+                    // Header
+                    Padding(
+                      padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
+                      child: Text(
+                        game, 
+                        textScaleFactor: 6,
+                        style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                      ),
+                    ),
+
+                    // Text
+                    Padding(
+                      padding: const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 32),
+                      child: Text(
+                        explaination, 
+                        textScaleFactor: 3.5,
+                        style: const TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        );
       },
       initialChildSize: 0.7,
       maxChildSize: 0.9,
