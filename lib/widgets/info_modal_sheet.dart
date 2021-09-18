@@ -39,7 +39,7 @@ class InfoSheet extends StatelessWidget {
 
                 // Text
                 Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 32, right: 32),
+                  padding: const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 32),
                   child: Text(
                     explaination, 
                     textScaleFactor: 3.5,

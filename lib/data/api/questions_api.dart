@@ -46,7 +46,7 @@ class Questions {
   }
 
   /// Spesific Method for Truth and Dare as it a Bit Differnet.
-  static Future<List> getTruthAndDareQuestions() async {
+  static Future<List<List<String>>> getTruthAndDareQuestions() async {
     var truthQuestions = await getQuestions(3);
     var dareQuestions =  await getQuestions(4);
 
