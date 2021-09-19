@@ -24,19 +24,33 @@ class MenuScreen extends StatelessWidget {
               child: Text(
                 'Chin Chin', 
                 textScaleFactor: 6.5,
-                style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
+                style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[600]),
               ),
             ),
 
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/background.png'),
-                  fit: BoxFit.fill
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+              child: Container(
+                height: 200,
+                child: const Center(
+                  child: Text(
+                    'En drikkelek for alle! En lek for enhver stemning!',
+                    textScaleFactor: 2.5,
+                    style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(20))
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/background.png'),
+                    fit: BoxFit.fill
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20))
+                ),
               ),
             ),
+
+            
 
             // List
            for (int i = 0; i < 4; i++)

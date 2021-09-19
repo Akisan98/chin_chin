@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chin_chin/data/api/questions_api.dart';
 import 'package:chin_chin/pages/communal_toast.dart';
+import 'package:chin_chin/widgets/loading.dart';
 import 'package:chin_chin/widgets/simple_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -22,7 +23,7 @@ class GameScreen extends StatelessWidget {
         if (snapshot.hasData) {
           return GameScreenBody(gameNumber: gameNumber, questions: snapshot.data!);
         }
-        return const Text('Fetching Data!');
+        return const LoadingScreen();
       }
     ) : FutureBuilder(
       future: Questions.getTruthAndDareQuestions(),
@@ -30,7 +31,7 @@ class GameScreen extends StatelessWidget {
         if (snapshot.hasData) {
           return TruthAndDare(gameNumber: gameNumber, truths: snapshot.data![0], dares: snapshot.data![1]);
         }
-        return const Text('Fetching Data!');
+        return const LoadingScreen();
       }
     );
   }
@@ -312,7 +313,7 @@ class GameTitle extends StatelessWidget {
       padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 16 : 32, left: 16, right: 16),
       child: AutoSizeText(
         gameName,
-        style: TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
+        style: TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.cyan[600]),
         maxLines: 1,
         textAlign: TextAlign.left,
         //overflow: TextOverflow.ellipsis,

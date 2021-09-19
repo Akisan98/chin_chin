@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ml.akisan.party_bud.chin_chin">
+    package="ml.akisan.party_bud">
 
   <!-- Required to fetch data from the internet. -->
   <uses-permission android:name="android.permission.INTERNET" />
 
    <application
-        android:label="chin_chin"
+        android:label="Chin Chin"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

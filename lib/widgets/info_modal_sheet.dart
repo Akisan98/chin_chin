@@ -37,7 +37,7 @@ class InfoSheet extends StatelessWidget {
                       child: Text(
                         game, 
                         textScaleFactor: 6,
-                        style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
+                        style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[600]),
                       ),
                     ),
 
