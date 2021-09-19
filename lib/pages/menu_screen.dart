@@ -42,7 +42,7 @@ class MenuScreen extends StatelessWidget {
                 ),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/background.png'),
+                    image: AssetImage('assets/background2.png'),
                     fit: BoxFit.fill
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20))
