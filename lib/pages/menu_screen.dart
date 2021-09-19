@@ -20,11 +20,21 @@ class MenuScreen extends StatelessWidget {
             
             // Header
             Padding(
-              padding: EdgeInsets.only(top: 48, left: 16, right: 16),
+              padding: const EdgeInsets.only(top: 48, left: 16, right: 16),
               child: Text(
                 'Chin Chin', 
                 textScaleFactor: 6.5,
                 style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.cyan[700]),
+              ),
+            ),
+
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/background.png'),
+                  fit: BoxFit.fill
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20))
               ),
             ),
 

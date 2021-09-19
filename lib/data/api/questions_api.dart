@@ -11,7 +11,7 @@ class Questions {
   Client client = Client();
 
   /// Paths To Mock API
-  static const _URL = "https://raw.githubusercontent.com/Akisan98/chin_chin/master/questions/";
+  static const _url = 'https://raw.githubusercontent.com/Akisan98/chin_chin/master/questions/';
   static const _filePath =  [
     'neverHaveI.json',
     'whoIs.json',
@@ -21,12 +21,12 @@ class Questions {
   ];
 
   /// Method for Fetch and Converting API to Data Object
-  static Future<List<String>> getQuestions(id) async {
+  static Future<List<String>> getQuestions(int id) async {
     var questions = <String>[];
 
     try {
       final response = await http
-      .get(Uri.parse(_URL + _filePath[id]));
+      .get(Uri.parse(_url + _filePath[id]));
 
       if (response.statusCode == 200) {
         for (var item in jsonDecode(response.body)['questions']) {

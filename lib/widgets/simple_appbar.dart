@@ -88,8 +88,8 @@ class HelpButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 0, 8, 0),
         child: ActionChip(
           backgroundColor: Colors.grey[600],
-          label:  Text('Help', style: TextStyle(color: Colors.white)),
-          avatar: Icon(Icons.help_outline, color: Colors.white),
+          label: const Text('Hjelp', style: TextStyle(color: Colors.white)),
+          avatar: const Icon(Icons.help_outline, color: Colors.white),
           onPressed: (){
             showModalBottomSheet(
               builder: (context) => InfoSheet(game: game, explaination: explaination), 
