@@ -66,14 +66,22 @@ class Trivia extends StatelessWidget {
               ),
 
               // Buttons
-              SizedBox(
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: SizedBox(
+                  height: 150,
                   child: Row(
                         children: [
                           Flexible(
                             fit: FlexFit.tight,
-                            child: TextButton(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                              child: TextButton(
                             onPressed: () {}, 
-                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 8, right: 8),
+                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
+                            ), 
                             style: TextButton.styleFrom(
                               primary: Colors.white,
                               backgroundColor: Colors.cyan[700],
@@ -83,14 +91,20 @@ class Trivia extends StatelessWidget {
                                 )
                               ),
                             ),
+                            )
                           ),
-                            
+                          
 
                          Flexible(
                             fit: FlexFit.tight,
-                            child: TextButton(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
+                              child: TextButton(
                             onPressed: () {}, 
-                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 8, right: 8),
+                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
+                            ), 
                             style: TextButton.styleFrom(
                               primary: Colors.white,
                               backgroundColor: Colors.cyan[700],
@@ -100,19 +114,27 @@ class Trivia extends StatelessWidget {
                                 )
                               ),
                             ),
+                            )
                           ),
                         ],
                       ),
                   ),
+              ),
 
                 SizedBox(
+                  height: 150,
                   child: Row(
                         children: [
-                          Flexible(
+                         Flexible(
                             fit: FlexFit.tight,
-                            child: TextButton(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                              child: TextButton(
                             onPressed: () {}, 
-                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 8, right: 8),
+                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
+                            ), 
                             style: TextButton.styleFrom(
                               primary: Colors.white,
                               backgroundColor: Colors.cyan[700],
@@ -122,14 +144,21 @@ class Trivia extends StatelessWidget {
                                 )
                               ),
                             ),
+                            )
                           ),
                             
 
-                         Flexible(
+                        Flexible(
                             fit: FlexFit.tight,
-                            child: TextButton(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
+
+                              child: TextButton(
                             onPressed: () {}, 
-                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 8, right: 8),
+                              child: AutoSizeText('Lang text Svar som jeg ikke vet nodbjdfjbdfjbdfjbdfbjdfjbdfjbdfjbdfjbdfsje om'),
+                            ), 
                             style: TextButton.styleFrom(
                               primary: Colors.white,
                               backgroundColor: Colors.cyan[700],
@@ -139,6 +168,7 @@ class Trivia extends StatelessWidget {
                                 )
                               ),
                             ),
+                            )
                           ),
                         ],
                       ),
