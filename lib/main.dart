@@ -9,14 +9,3 @@ void main() {
     )
   );
 }
-
-class PartyBud extends StatelessWidget {
-  const PartyBud({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(color: Colors.red,),
-    );
-  }
-}

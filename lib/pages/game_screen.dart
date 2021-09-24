@@ -25,7 +25,7 @@ class GameScreen extends StatelessWidget {
         }
         return const LoadingScreen();
       }
-    ) : FutureBuilder(
+    ) : gameNumber == 3 ? FutureBuilder(
       future: Questions.getTruthAndDareQuestions(),
       builder: (context, AsyncSnapshot<List<List<String>>> snapshot) {
         if (snapshot.hasData) {
@@ -33,7 +33,121 @@ class GameScreen extends StatelessWidget {
         }
         return const LoadingScreen();
       }
-    );
+    ) : const Trivia();
+  }
+}
+
+
+class Trivia extends StatelessWidget {
+  const Trivia({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[850],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+
+              // AppBar
+              const SimpleAppBar(game: 'Trivia', explaination: ''),
+
+              // Header
+              const GameTitle(gameName: 'Trvia', shrink: true),
+
+              const PaddedCard(
+                shrink: true,
+                child: QuestionCard(
+                  image: 'card33.png', 
+                  question: 'Test123456789'//'$index TEXT',
+                )
+              ),
+
+              // Buttons
+              SizedBox(
+                  child: Row(
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            child: TextButton(
+                            onPressed: () {}, 
+                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.cyan[700],
+                              textStyle: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                )
+                              ),
+                            ),
+                          ),
+                            
+
+                         Flexible(
+                            fit: FlexFit.tight,
+                            child: TextButton(
+                            onPressed: () {}, 
+                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.cyan[700],
+                              textStyle: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                )
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ),
+
+                SizedBox(
+                  child: Row(
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            child: TextButton(
+                            onPressed: () {}, 
+                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.cyan[700],
+                              textStyle: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                )
+                              ),
+                            ),
+                          ),
+                            
+
+                         Flexible(
+                            fit: FlexFit.tight,
+                            child: TextButton(
+                            onPressed: () {}, 
+                            child: const AutoSizeText('Lang text Svar som jeg ikke vet noe om'), 
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.cyan[700],
+                              textStyle: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                )
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ),
+            ]
+          )
+        )
+      )
+    ); 
   }
 }
 
@@ -109,7 +223,127 @@ class GameScreenBody extends StatelessWidget {
   }
 }
 
+class GameTitle extends StatelessWidget {
+  const GameTitle({required this.gameName, this.shrink = false, Key? key}) : super(key: key);
 
+  final String gameName;
+  final bool shrink;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: shrink ? 8 : MediaQuery.of(context).devicePixelRatio == 3.0 ? 16 : 32, left: 16, right: 16),
+      child: AutoSizeText(
+        gameName,
+        style: TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.cyan[600]),
+        maxLines: 1,
+        textAlign: TextAlign.left,
+        //overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+}
+
+class PaddedCard extends StatelessWidget {
+  const PaddedCard({required this.child, this.shrink = false, Key? key}) : super(key: key);
+
+  final Widget child;
+  final bool shrink;
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: shrink ? 24.0 : MediaQuery.of(context).devicePixelRatio == 3.0 ? 24.0 : 48.0),
+      child: FixedCardSize(
+        shrink: shrink,
+        child: child
+      ),
+    );
+  }
+}
+
+class FixedCardSize extends StatelessWidget {
+  const FixedCardSize({required this.child, this.shrink = false, Key? key}) : super(key: key);
+
+  final Widget child;
+  final bool shrink;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: shrink ? MediaQuery.of(context).size.height * 0.35 : MediaQuery.of(context).devicePixelRatio == 3.0 ? MediaQuery.of(context).size.height * 0.38 : MediaQuery.of(context).size.height * 0.4,
+      child: child
+    );
+  }
+  
+}
+
+
+class QuestionCard extends StatelessWidget {
+  const QuestionCard({required this.image, required this.question, Key? key}) : super(key: key);
+
+  final String image;
+  final String question;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(24), 
+          child: AutoSizeText(
+            question,
+            style: const TextStyle(fontSize: 60, fontFamily: 'MouseMemoirs', color: Colors.white),
+            maxLines: 10,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/$image'),
+            fit: BoxFit.fill
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(20))
+        ),
+      ),
+    );
+  }
+}
+
+class NextButton extends StatelessWidget {
+  const NextButton({required this.lable, required this.onPressed, Key? key}) : super(key: key);
+
+  final String lable;
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(48),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.7,
+        height: 75,
+        child: TextButton(
+          onPressed: onPressed, 
+          child: Text(lable), 
+          style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.cyan[700],
+            textStyle: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w800,
+            )
+          ),
+        ),
+      )
+    );
+  }
+}
+
+/* ------------------------------------------------------------------------------ Truth And Dare ------------------------------------------------------------------------------ */
 
 class TruthAndDare extends StatefulWidget {
   const TruthAndDare({required this.gameNumber, required this.truths, required this.dares, Key? key}) : super(key: key);
@@ -302,92 +536,6 @@ class _TruthAndDareState extends State<TruthAndDare> {
   }
 }
 
-class GameTitle extends StatelessWidget {
-  const GameTitle({required this.gameName, Key? key}) : super(key: key);
-
-  final String gameName;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 16 : 32, left: 16, right: 16),
-      child: AutoSizeText(
-        gameName,
-        style: TextStyle(fontSize: 80, fontFamily: 'MouseMemoirs', color: Colors.cyan[600]),
-        maxLines: 1,
-        textAlign: TextAlign.left,
-        //overflow: TextOverflow.ellipsis,
-      ),
-    );
-  }
-}
-
-class PaddedCard extends StatelessWidget {
-  const PaddedCard({required this.child, Key? key}) : super(key: key);
-
-  final Widget child;
-  
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).devicePixelRatio == 3.0 ? 24.0 : 48.0),
-      child: FixedCardSize(
-        child: child
-      ),
-    );
-  }
-}
-
-class FixedCardSize extends StatelessWidget {
-  const FixedCardSize({required this.child, Key? key}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: MediaQuery.of(context).devicePixelRatio == 3.0 ? MediaQuery.of(context).size.height * 0.38 : MediaQuery.of(context).size.height * 0.4,
-      child: child
-    );
-  }
-  
-}
-
-
-class QuestionCard extends StatelessWidget {
-  const QuestionCard({required this.image, required this.question, Key? key}) : super(key: key);
-
-  final String image;
-  final String question;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(24), 
-          child: AutoSizeText(
-            question,
-            style: const TextStyle(fontSize: 60, fontFamily: 'MouseMemoirs', color: Colors.white),
-            maxLines: 10,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/$image'),
-            fit: BoxFit.fill
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(20))
-        ),
-      ),
-    );
-  }
-}
-
 class TruthAndDareDefault extends StatelessWidget {
   const TruthAndDareDefault({Key? key}) : super(key: key);
 
@@ -396,37 +544,6 @@ class TruthAndDareDefault extends StatelessWidget {
     return const QuestionCard(
       image: 'card22.png',
       question: 'Trykk en knapp for å starte!'
-    );
-  }
-  
-}
-
-class NextButton extends StatelessWidget {
-  const NextButton({required this.lable, required this.onPressed, Key? key}) : super(key: key);
-
-  final String lable;
-  final void Function() onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(48),
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.7,
-        height: 75,
-        child: TextButton(
-          onPressed: onPressed, 
-          child: Text(lable), 
-          style: TextButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: Colors.cyan[700],
-            textStyle: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w800,
-            )
-          ),
-        ),
-      )
     );
   }
 }

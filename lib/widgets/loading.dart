@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoadingScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.45,
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.all(32),
@@ -22,19 +23,19 @@ class LoadingScreen extends StatelessWidget {
                       width: MediaQuery.of(context).size.height * 0.20,
                       child: const Padding(
                         padding: EdgeInsets.all(32),
-                        child: CircularProgressIndicator(strokeWidth: 12, color: Colors.white),
+                        child: CircularProgressIndicator(strokeWidth: 10, color: Colors.white),
                       )
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: MediaQuery.of(context).size.height * 0.15,
                       child: const Padding(
                         padding: EdgeInsets.all(16),
-                        child: Text(
+                        child:  AutoSizeText(
                           'Laster inn Spørsmål...\nSørg for at internet er på.',
-                          textScaleFactor: 1.5,
-                          style: TextStyle(fontFamily: 'MouseMemoirs', color: Colors.white),
+                          style: TextStyle(fontFamily: 'MouseMemoirs', fontSize: 30, color: Colors.white),
                           textAlign: TextAlign.center,
                         ),
+
                       )
                     )
                   ],

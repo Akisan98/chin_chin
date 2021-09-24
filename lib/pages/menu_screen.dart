@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
 
-  static const images =  ['card44.png', 'card11.png', 'card33.png', 'card22.png'];
-  static const gameNames =  ['Jeg har aldri...', 'Hvem i rommet', 'Vil du heller', 'Nødt eller Sannhet'];
+  static const images =  ['card44.png', 'card11.png', 'card33.png', 'card22.png', 'card22.png'];
+  static const gameNames =  ['Jeg har aldri...', 'Hvem i rommet', 'Vil du heller', 'Nødt eller Sannhet', 'Trivia (Engelsk)'];
 
 
   @override
@@ -50,13 +50,9 @@ class MenuScreen extends StatelessWidget {
               ),
             ),
 
-            
-
             // List
-           for (int i = 0; i < 4; i++)
+           for (int i = 0; i < gameNames.length; i++)
               GameCard(image:images[i], gameName: gameNames[i], cardIndex: i,),
-
-            //TODO: Add Trivia Game Mode
           ],
         ),
         )
