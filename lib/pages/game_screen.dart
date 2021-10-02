@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chin_chin/data/api/questions_api.dart';
 import 'package:chin_chin/pages/communal_toast.dart';
+import 'package:chin_chin/pages/test.dart';
 import 'package:chin_chin/widgets/loading.dart';
 import 'package:chin_chin/widgets/simple_appbar.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class GameScreen extends StatelessWidget {
         }
         return const LoadingScreen();
       }
-    ) : const Trivia();
+    ) : const TestPage();
   }
 }
 
@@ -52,10 +53,10 @@ class Trivia extends StatelessWidget {
             children: [
 
               // AppBar
-              const SimpleAppBar(game: 'Trivia', explaination: ''),
+              SimpleAppBar(game: 'Trivia', explaination: '', showTitle: MediaQuery.of(context).devicePixelRatio != 3.0 ? false : true),
 
               // Header
-              const GameTitle(gameName: 'Trvia', shrink: true),
+              MediaQuery.of(context).devicePixelRatio != 3.0 ? const GameTitle(gameName: 'Trvia', shrink: true) : const SizedBox(),
 
               const PaddedCard(
                 shrink: true,
@@ -71,113 +72,61 @@ class Trivia extends StatelessWidget {
                 child: SizedBox(
                   height: 150,
                   child: Row(
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-                              child: TextButton(
-                            onPressed: () {}, 
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
-                            ), 
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.cyan[700],
-                              textStyle: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800,
-                                )
-                              ),
-                            ),
-                            )
-                          ),
-                          
-
-                         Flexible(
-                            fit: FlexFit.tight,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
-                              child: TextButton(
-                            onPressed: () {}, 
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
-                            ), 
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.cyan[700],
-                              textStyle: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800,
-                                )
-                              ),
-                            ),
-                            )
-                          ),
-                        ],
-                      ),
+                    children: const [
+                      AnswerButton(buttonPadding: EdgeInsets.fromLTRB(16, 8, 8, 8), buttontext: 'dsfsdf dsfds sdfdsdf sdfds dsfdsf dsfds fdsfdsf dsfs sdfdsf dsfsd',),
+                      AnswerButton(buttonPadding: EdgeInsets.fromLTRB(8, 8, 16, 8), buttontext: 'dsf s dsf sdsfdsfdjfoidsjfiojsdoifjds fdsfsd',),
+                    ],
                   ),
+                ),
               ),
 
-                SizedBox(
-                  height: 150,
-                  child: Row(
-                        children: [
-                         Flexible(
-                            fit: FlexFit.tight,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-                              child: TextButton(
-                            onPressed: () {}, 
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: AutoSizeText('Lang text Svar som jeg ikke vet noe om'),
-                            ), 
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.cyan[700],
-                              textStyle: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800,
-                                )
-                              ),
-                            ),
-                            )
-                          ),
-                            
-
-                        Flexible(
-                            fit: FlexFit.tight,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
-
-                              child: TextButton(
-                            onPressed: () {}, 
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: AutoSizeText('Lang text Svar som jeg ikke vet nodbjdfjbdfjbdfjbdfbjdfjbdfjbdfjbdfjbdfsje om'),
-                            ), 
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.cyan[700],
-                              textStyle: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800,
-                                )
-                              ),
-                            ),
-                            )
-                          ),
-                        ],
-                      ),
-                  ),
+              SizedBox(
+                height: 150,
+                child: Row(
+                  children: const [
+                    AnswerButton(buttonPadding: EdgeInsets.fromLTRB(16, 8, 8, 8), buttontext: 'fdsdsd  dfs sdfs ',),
+                    AnswerButton(buttonPadding: EdgeInsets.fromLTRB(8, 8, 16, 8), buttontext: 'fdgvd',)
+                  ],
+                ),
+              ),
             ]
           )
         )
       )
     ); 
+  }
+}
+
+class AnswerButton extends StatelessWidget {
+  const AnswerButton({required this.buttonPadding, required this.buttontext, Key? key}) : super(key: key);
+
+  final EdgeInsetsGeometry buttonPadding;
+  final String buttontext;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 150,
+      width: (MediaQuery.of(context).size.width) / 2,
+      child: Padding(
+        padding: buttonPadding,
+        child: TextButton(
+          onPressed: () {}, 
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8, right: 8),
+            child: AutoSizeText(buttontext),
+          ), 
+          style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.cyan[700],
+            textStyle: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w800,
+            )
+          ),
+        ),
+      )
+    );
   }
 }
 

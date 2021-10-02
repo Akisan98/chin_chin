@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 
 /// Custom and Stylish Appbar to Replace The Standard One. 
 class SimpleAppBar extends StatelessWidget {
-  const SimpleAppBar({required this.game, required this.explaination, Key? key}) : super(key: key);
+  const SimpleAppBar({required this.game, required this.explaination, this.showTitle = false, Key? key}) : super(key: key);
 
   final String game;
   final String explaination;
+  final bool showTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class SimpleAppBar extends StatelessWidget {
       child: Row(
         children: [
           const BackButton(),
-          const BarTitle(),
+          BarTitle(gameTitle: showTitle ? game : ''),
           HelpButton(game: game, explaination: explaination),
         ],
       ),
@@ -48,18 +49,20 @@ class BackButton extends StatelessWidget {
 
 /// Displayes The Title of Page
 class BarTitle extends StatelessWidget {
-  const BarTitle({Key? key}) : super(key: key);
+  const BarTitle({required this.gameTitle, Key? key}) : super(key: key);
+
+  final String gameTitle;
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Text(
-            ' ', 
-            style: TextStyle(
+            gameTitle, 
+            style: const TextStyle(
               fontWeight: FontWeight.w900,
               color: Colors.white
             ),
